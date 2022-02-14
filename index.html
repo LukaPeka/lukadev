@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta property="og:site_name" content="lukadev" />
+  <meta property="og:title" content="LukaPeka" />
+<meta property="og:description" content="My personal website." />
+<meta name="theme-color" content="#f36c6c">
+<meta property="og:image" content="https://lukadev.xyz/images/img.png" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/img.png">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mainscriptofstyles.29428646245/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>lukapeka</title>
+</head>
+
+<body>
+<div class="container">
+
+
+    <div class="menu">
+
+
+        <div class="appledugmiciforlife">
+<div class="dugme crveno"></div><div class="dugme zuta"></div><div class="dugme zelena"></div>
+</div>
+<div class="title">
+</div>
+</div>
+<div id="app">
+</div>
+</div>
+
+
+
+
+
+<script>
+
+
+const app = document.querySelector("#app");
+const delay = ms => new Promise(res => setTimeout(res, ms));
+        
+        
+    app.addEventListener("keypress", async function(event){
+      if(event.key === "Enter"){
+        await delay(150);
+       getInputValue();
+       
+        removeInput();
+        await delay(250);
+        new_line();
+      }
+    });
+    
+    app.addEventListener("click", function(event){
+      const input = document.querySelector("input");
+      input.focus();
+    })
+    
+    
+    async function open_terminal(){
+      await delay(1200);
+      createText("Loading please wait...")
+      await delay(1600)
+      createText("Welcome to the Website!, You can use the terminal to interact with commands.")
+      await delay(400);
+      createText(" Type \"help\" to start.")
+      await delay(800);
+      new_line();
+    }
+    
+    
+    function new_line(){
+      
+      const p = document.createElement("p");
+      const span1 = document.createElement("span");
+      const span2 = document.createElement("span");
+      p.setAttribute("class", "path")
+      span1.textContent = "";
+      span2.textContent = "";
+      p.appendChild(span1);
+      p.appendChild(span2);
+      app.appendChild(p);
+      const div = document.createElement("div");
+      div.setAttribute("class", "type")
+      const i = document.createElement("i");
+      i.setAttribute("class", "$ ")
+      const input = document.createElement("input");
+      div.appendChild(i);
+      div.appendChild(input);
+      app.appendChild(div);
+      input.focus();
+      
+    }
+    
+    function removeInput(){
+      const div = document.querySelector(".type");
+      app.removeChild(div);
+    }
+    
+    async function getInputValue(){
+      
+      const value = document.querySelector("input").value;
+      if(value === "bots"){
+        trueValue(value);
+        createText("Working on public bot (Tacos)")
+        
+      }
+      else if(value === "help"){
+        trueValue(value);
+        createText("<h1 class='omg'>Welcome to the help menu!</h1>")
+        createText("Here is the list of some commands:")
+        createText("<span>about<span> <span class='bataluks'>-<span> <span class='bratruks'>View all informations about me!<span>")
+        createText("<span>socials<span> <span class='bataluks'>-<span> <span class='bratruks'>View all my socials!<span>")
+        createText("<span>ping<span> <span class='bataluks'>-<span> <span class='bratruks'>Pings a server<span>")
+      }
+      else if(value === "about"){
+        trueValue(value);
+        createText("Hi my name is <span class='span-blue'>LukaPeka</span>, as know as Luka.")
+        createText("You probably know me from <span class='span-blue'>Discord</span> or other social medias. I'm front-end developer, I like to code! Mostly <span class='span-yellow'>JavaScript</span> & <span class='span-blue'>Python</span>. But I want to learn more programming languages lol.")
+      }
+      else if(value === "socials"){
+        trueValue(value);
+        createText("Here are some of my social medias!")
+        createText("")
+        createText("<a href='https://github.com/LukaPeka' target='_blank'  class='gss1'><i class='fa fa-github white'></i> GitHub</a>")
+        createText("<a href='https://www.youtube.com/channel/UCDkGHGJLtIUdR8wMO6WNpHQ' target='_blank'  class='gss2'><i class='fa fa-youtube-play white'></i> YouTube</a>")
+        createText("<a href='https://discordapp.com/users/930233120517681213' target='_blank'  class='gss3'><i class='fa fa-desktop white'></i> Discord</a>")
+        createText("<a href='https://twitter.com/LukaPeka007' target='_blank'  class='gss4'><i class='fa fa-twitter white'></i> Twitter</a>")
+      }
+            else if(value === "ping"){
+        trueValue(value);
+        createText("Pinging lukadev.xyz [35.186.245.55] with 32 bytes of data:")
+        createText("Reply from 35.186.245.55: bytes=32 time=44ms TTL=117")
+        createText("Reply from 35.186.245.55: bytes=32 time=44ms TTL=117")
+        createText("Reply from 35.186.245.55: bytes=32 time=44ms TTL=117")
+        createText("Reply from 35.186.245.55: bytes=32 time=44ms TTL=117")
+
+
+
+      }
+      else{
+        falseValue(value);
+        createText(`$ '${value}' command not found or you have made a typo.`)
+      }
+    }
+    
+    function trueValue(value){
+      
+      const div = document.createElement("section");
+      div.setAttribute("class", "type2")
+      const i = document.createElement("i");
+      i.setAttribute("class", "$")
+      const mensagem = document.createElement("h2");
+      mensagem.setAttribute("class", "dobardeocodea")
+      mensagem.textContent = `${value}`;
+      div.appendChild(i);
+      div.appendChild(mensagem);
+      app.appendChild(div);
+    }
+    
+    function falseValue(value){
+      const div = document.createElement("section");
+      div.setAttribute("class", "type2")
+      const i = document.createElement("i");
+      i.setAttribute("class", "$")
+      const mensagem = document.createElement("h2");
+      mensagem.setAttribute("class", "greskausistemu")
+      mensagem.textContent = `${value}`;
+      div.appendChild(i);
+      div.appendChild(mensagem);
+      app.appendChild(div);
+    }
+    
+    function createText(text, classname){
+      const p = document.createElement("p");
+      
+      p.innerHTML =
+      text
+      ;
+      app.appendChild(p);
+    }
+    
+    function createCode(code, text){
+      const p = document.createElement("p");
+      p.setAttribute("class", "code");
+      p.innerHTML =
+     `${code} <br/><span class='text'> ${text} </span>`;
+      app.appendChild(p);
+    }
+    
+    function createAchievement(text){
+      var img = document.createElement('achievement');
+      img.innerHTML = `<img src="https://mcgen.herokuapp.com/a.php?i=8&h=Easter+Egg+Found%21&t=${text}" alt="Achivmenet" class="ribbon">`
+      document.body.appendChild(img)
+      setTimeout(function(){
+        document.body.removeChild(img)
+      }, 2000);
+    }
+    
+    open_terminal();</script>
+</body>
+</html>
